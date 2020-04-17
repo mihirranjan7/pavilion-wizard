@@ -1,0 +1,13 @@
+{
+  "name": "Pavilion Wizard",
+  "about_url": null,
+  "license_url": "https://github.com/paviliondev/pavilion-wizard/blob/master/LICENSE.txt",
+  "authors": "Angus McLeod",
+  "theme_version": "1.0",
+  "assets": {
+    "background": "assets/background.png"
+  },
+  "color_schemes": {
+  },
+  "component":true
+}
