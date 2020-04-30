@@ -1,6 +1,10 @@
 body.custom-wizard {
   background-image: url($background);
   background-size: cover;
+  
+  .wizard-field {
+    margin-bottom: 0.5em;
+  }
 }
 
 .custom-wizard .wizard-step-title p {
