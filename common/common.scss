@@ -5,6 +5,10 @@ body.custom-wizard {
   .wizard-field {
     margin-bottom: 0.5em;
   }
+
+  code {
+    font-family: unset;
+  }
 }
 
 .custom-wizard .wizard-step-title p {
