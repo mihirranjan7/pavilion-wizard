@@ -151,3 +151,8 @@ body.custom-wizard .wizard-column .wizard-footer {
 .wizard-column .wizard-btn-upload-file:hover svg {
   fill: #ffffff !important;
 }
+
+body.custom-wizard {
+  overflow: hidden !important;
+}
+
