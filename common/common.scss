@@ -101,3 +101,13 @@ body.custom-wizard .wizard-column .wizard-footer {
     border-bottom-right-radius: 5px;
     text-align: center; /* Center inline elements like images or spans */
 }
+.wizard-step-title {
+  text-align: center !important;
+  font-size: 1.8rem !important;
+  font-weight: 700 !important;
+  margin-bottom: 1rem !important;
+}
+
+.wizard-step-title p {
+  margin: 0 !important;
+}
