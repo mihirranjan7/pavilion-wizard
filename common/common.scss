@@ -1,3 +1,146 @@
+/* Define CSS variables for colors */
+:root {
+  /* Light mode defaults */
+  --background-color-light: #f9f9f9;
+  --text-color-light: #1c1c1c;
+  --container-bg-light: #ffffff;
+  --container-box-shadow-light: rgba(0, 0, 0, 0.05);
+  --title-color-light: #282828;
+  --title-underline-light: #0077cc;
+  --label-color-light: #444;
+  --input-border-light: #ddd;
+  --input-focus-border-light: #0077cc;
+  --input-focus-bg-light: #fefefe;
+  --code-bg-light: #f1f3f5;
+  --button-bg-light: #0077cc;
+  --button-hover-bg-light: #005fa3;
+  --footer-border-top-light: var(--primary-low-mid); /* Assuming these are defined elsewhere */
+  --footer-bg-light: var(--secondary); /* Assuming these are defined elsewhere */
+  --upload-btn-bg-light: #ffffff;
+  --upload-btn-color-light: #007BFF;
+  --upload-btn-border-light: #007BFF;
+  --upload-btn-hover-bg-light: #007BFF;
+  --upload-btn-hover-color-light: #ffffff;
+  --upload-btn-shadow-light: rgba(0, 0, 0, 0.05);
+  --upload-btn-hover-shadow-light: rgba(0, 123, 255, 0.2);
+  --upload-svg-fill-light: currentColor;
+  --upload-svg-hover-fill-light: #ffffff;
+
+  /* Dark mode variables (will be overridden by media query) */
+  --background-color-dark: #282c34; /* Dark background */
+  --text-color-dark: #e0e0e0; /* Light text */
+  --container-bg-dark: #3a3f47; /* Slightly lighter dark for container */
+  --container-box-shadow-dark: rgba(0, 0, 0, 0.3);
+  --title-color-dark: #ffffff;
+  --title-underline-dark: #66b3ff; /* Lighter blue for underline */
+  --label-color-dark: #b0b0b0;
+  --input-border-dark: #555;
+  --input-focus-border-dark: #66b3ff;
+  --input-focus-bg-dark: #4a4f57;
+  --code-bg-dark: #444;
+  --button-bg-dark: #66b3ff;
+  --button-hover-bg-dark: #4da6ff;
+  --footer-border-top-dark: #555; /* Example dark mode footer colors */
+  --footer-bg-dark: #333; /* Example dark mode footer colors */
+  --upload-btn-bg-dark: #4a4f57;
+  --upload-btn-color-dark: #66b3ff;
+  --upload-btn-border-dark: #66b3ff;
+  --upload-btn-hover-bg-dark: #66b3ff;
+  --upload-btn-hover-color-dark: #3a3f47; /* Match container background */
+  --upload-btn-shadow-dark: rgba(0, 0, 0, 0.2);
+  --upload-btn-hover-shadow-dark: rgba(0, 123, 255, 0.4);
+  --upload-svg-fill-dark: currentColor;
+  --upload-svg-hover-fill-dark: #3a3f47; /* Match container background */
+}
+
+/* Dark mode styles */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background-color: var(--background-color-dark);
+    --text-color: var(--text-color-dark);
+    --container-bg: var(--container-bg-dark);
+    --container-box-shadow: var(--container-box-shadow-dark);
+    --title-color: var(--title-color-dark);
+    --title-underline: var(--title-underline-dark);
+    --label-color: var(--label-color-dark);
+    --input-border: var(--input-border-dark);
+    --input-focus-border: var(--input-focus-border-dark);
+    --input-focus-bg: var(--input-focus-bg-dark);
+    --code-bg: var(--code-bg-dark);
+    --button-bg: var(--button-bg-dark);
+    --button-hover-bg: var(--button-hover-bg-dark);
+    --footer-border-top: var(--footer-border-top-dark);
+    --footer-bg: var(--footer-bg-dark);
+    --upload-btn-bg: var(--upload-btn-bg-dark);
+    --upload-btn-color: var(--upload-btn-color-dark);
+    --upload-btn-border: var(--upload-btn-border-dark);
+    --upload-btn-hover-bg: var(--upload-btn-hover-bg-dark);
+    --upload-btn-hover-color: var(--upload-btn-hover-color-dark);
+    --upload-btn-shadow: var(--upload-btn-shadow-dark);
+    --upload-btn-hover-shadow: var(--upload-btn-hover-shadow-dark);
+    --upload-svg-fill: var(--upload-svg-fill-dark);
+    --upload-svg-hover-fill: var(--upload-svg-hover-fill-dark);
+  }
+}
+
+/* Light mode fallback (or explicit light mode) */
+@media (prefers-color-scheme: light) {
+  :root {
+    --background-color: var(--background-color-light);
+    --text-color: var(--text-color-light);
+    --container-bg: var(--container-bg-light);
+    --container-box-shadow: var(--container-box-shadow-light);
+    --title-color: var(--title-color-light);
+    --title-underline: var(--title-underline-light);
+    --label-color: var(--label-color-light);
+    --input-border: var(--input-border-light);
+    --input-focus-border: var(--input-focus-border-light);
+    --input-focus-bg: var(--input-focus-bg-light);
+    --code-bg: var(--code-bg-light);
+    --button-bg: var(--button-bg-light);
+    --button-hover-bg: var(--button-hover-bg-light);
+    --footer-border-top: var(--footer-border-top-light);
+    --footer-bg: var(--footer-bg-light);
+    --upload-btn-bg: var(--upload-btn-bg-light);
+    --upload-btn-color: var(--upload-btn-color-light);
+    --upload-btn-border: var(--upload-btn-border-light);
+    --upload-btn-hover-bg: var(--upload-btn-hover-bg-light);
+    --upload-btn-hover-color: var(--upload-btn-hover-color-light);
+    --upload-btn-shadow: var(--upload-btn-shadow-light);
+    --upload-btn-hover-shadow: var(--upload-btn-hover-shadow-light);
+    --upload-svg-fill: var(--upload-svg-fill-light);
+    --upload-svg-hover-fill: var(--upload-svg-hover-fill-light);
+  }
+}
+
+/* Fallback for browsers that don't support prefers-color-scheme, or if you want a default light mode */
+:root {
+  --background-color: var(--background-color-light);
+  --text-color: var(--text-color-light);
+  --container-bg: var(--container-bg-light);
+  --container-box-shadow: var(--container-box-shadow-light);
+  --title-color: var(--title-color-light);
+  --title-underline: var(--title-underline-light);
+  --label-color: var(--label-color-light);
+  --input-border: var(--input-border-light);
+  --input-focus-border: var(--input-focus-border-light);
+  --input-focus-bg: var(--input-focus-bg-light);
+  --code-bg: var(--code-bg-light);
+  --button-bg: var(--button-bg-light);
+  --button-hover-bg: var(--button-hover-bg-light);
+  --footer-border-top: var(--footer-border-top-light);
+  --footer-bg: var(--footer-bg-light);
+  --upload-btn-bg: var(--upload-btn-bg-light);
+  --upload-btn-color: var(--upload-btn-color-light);
+  --upload-btn-border: var(--upload-btn-border-light);
+  --upload-btn-hover-bg: var(--upload-btn-hover-bg-light);
+  --upload-btn-hover-color: var(--upload-btn-hover-color-light);
+  --upload-btn-shadow: var(--upload-btn-shadow-light);
+  --upload-btn-hover-shadow: var(--upload-btn-hover-shadow-light);
+  --upload-svg-fill: var(--upload-svg-fill-light);
+  --upload-svg-hover-fill: var(--upload-svg-hover-fill-light);
+}
+
 body.custom-wizard {
   background-image: url($background);
   background-size: cover;
@@ -10,14 +153,15 @@ body.custom-wizard {
   align-items: center;
   justify-content: center;
   font-family: 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-  color: #1c1c1c;
-  background-color: #f9f9f9;
+  color: var(--text-color);
+  background-color: var(--background-color);
+  overflow: hidden !important; /* Moved from original last block */
 
   .wizard-container {
-    background-color: #ffffff;
+    background-color: var(--container-bg);
     padding: 2.5rem 2rem;
     border-radius: 25px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 2px 10px var(--container-box-shadow);
     max-width: 540px;
     width: 100%;
     box-sizing: border-box;
@@ -27,8 +171,8 @@ body.custom-wizard {
     font-size: 1.375rem;
     font-weight: 600;
     margin-bottom: 1.5rem;
-    color: #282828;
-    background-image: linear-gradient(to bottom, transparent 80%, #0077cc 0%);
+    color: var(--title-color);
+    background-image: linear-gradient(to bottom, transparent 80%, var(--title-underline) 0%);
     background-size: 100% 0.3em;
     background-repeat: no-repeat;
     background-position: 0 100%;
@@ -42,7 +186,7 @@ body.custom-wizard {
       display: block;
       font-weight: 500;
       margin-bottom: 0.5em;
-      color: #444;
+      color: var(--label-color);
     }
 
     input[type="text"],
@@ -50,15 +194,15 @@ body.custom-wizard {
     textarea {
       width: 100%;
       padding: 0.75rem 1rem;
-      border: 1px solid #ddd;
+      border: 1px solid var(--input-border);
       border-radius: 8px;
       font-size: 1rem;
       transition: border 0.2s ease-in-out;
 
       &:focus {
-        border-color: #0077cc;
+        border-color: var(--input-focus-border);
         outline: none;
-        background-color: #fefefe;
+        background-color: var(--input-focus-bg);
       }
     }
   }
@@ -66,12 +210,12 @@ body.custom-wizard {
   input[type="checkbox"] {
     margin-right: 0.6em;
     vertical-align: middle;
-    accent-color: #0077cc;
+    accent-color: var(--button-bg); /* Using button-bg for consistency */
   }
 
   code {
     font-family: 'Courier New', Courier, monospace;
-    background-color: #f1f3f5;
+    background-color: var(--code-bg);
     padding: 0.2em 0.4em;
     border-radius: 4px;
     font-size: 0.95em;
@@ -79,8 +223,8 @@ body.custom-wizard {
 
   button {
     padding: 0.75em 1.5em;
-    background-color: #0077cc;
-    color: #fff;
+    background-color: var(--button-bg);
+    color: var(--text-color-light); /* Assuming white text on buttons in both modes */
     border: none;
     border-radius: 8px;
     font-weight: 600;
@@ -88,14 +232,14 @@ body.custom-wizard {
     font-size: 1rem;
 
     &:hover {
-      background-color: #005fa3;
+      background-color: var(--button-hover-bg);
     }
   }
 }
 
 body.custom-wizard .wizard-column .wizard-footer {
-    border-top: 1px solid var(--primary-low-mid);
-    background-color: var(--secondary);
+    border-top: 1px solid var(--footer-border-top);
+    background-color: var(--footer-bg);
     padding: .5em;
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
@@ -117,9 +261,9 @@ body.custom-wizard .wizard-column .wizard-footer {
 }
 
 .wizard-column .wizard-btn-upload-file {
-  background-color: #ffffff !important;
-  color: #007BFF !important;
-  border: 1px solid #007BFF !important;
+  background-color: var(--upload-btn-bg) !important;
+  color: var(--upload-btn-color) !important;
+  border: 1px solid var(--upload-btn-border) !important;
   padding: 0.6rem 1.2rem !important;
   border-radius: 30px !important;
   font-size: 0.95rem !important;
@@ -128,15 +272,15 @@ body.custom-wizard .wizard-column .wizard-footer {
   align-items: center !important;
   justify-content: center !important;
   cursor: pointer !important;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05) !important;
+  box-shadow: 0 2px 5px var(--upload-btn-shadow) !important;
   transition: all 0.2s ease-in-out !important;
   text-decoration: none !important;
 }
 
 .wizard-column .wizard-btn-upload-file:hover {
-  background-color: #007BFF !important;
-  color: #ffffff !important;
-  box-shadow: 0 4px 10px rgba(0, 123, 255, 0.2) !important;
+  background-color: var(--upload-btn-hover-bg) !important;
+  color: var(--upload-btn-hover-color) !important;
+  box-shadow: 0 4px 10px var(--upload-btn-hover-shadow) !important;
   transform: translateY(-2px) !important;
 }
 
@@ -144,15 +288,10 @@ body.custom-wizard .wizard-column .wizard-footer {
   margin-right: 0.5rem !important;
   width: 16px !important;
   height: 16px !important;
-  fill: currentColor !important;
+  fill: var(--upload-svg-fill) !important;
   transition: fill 0.2s !important;
 }
 
 .wizard-column .wizard-btn-upload-file:hover svg {
-  fill: #ffffff !important;
+  fill: var(--upload-svg-hover-fill) !important;
 }
-
-body.custom-wizard {
-  overflow: hidden !important;
-}
-
