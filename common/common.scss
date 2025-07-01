@@ -1,104 +1,5 @@
-/* Define CSS variables for colors */
-:root {
-  /* Light mode defaults */
-  --background-color-light: #f9f9f9;
-  --text-color-light: #1c1c1c; /* Main text color */
-  --container-bg-light: #ffffff;
-  --container-box-shadow-light: rgba(0, 0, 0, 0.05);
-  --title-color-light: #282828; /* Title text color */
-  --title-underline-light: #0077cc; /* Blue underline color */
-  --label-color-light: #444; /* Label text color */
-  --input-border-light: #ddd;
-  --input-focus-border-light: #0077cc;
-  --input-focus-bg-light: #fefefe;
-  --code-bg-light: #f1f3f5;
-  --button-bg-light: #0077cc; /* Primary button blue */
-  --button-hover-bg-light: #005fa3;
-  --button-text-light: #fff; /* Text on primary buttons */
-
-  /* Assuming these are defined elsewhere for light mode, if not, define solid colors */
-  --primary-low-mid-light: #e0e0e0; /* Example light value for primary-low-mid */
-  --secondary-light: #f0f0f0; /* Example light value for secondary */
-
-  --upload-btn-bg-light: #ffffff;
-  --upload-btn-color-light: #007BFF; /* Upload button text/border blue */
-  --upload-btn-border-light: #007BFF;
-  --upload-btn-hover-bg-light: #007BFF;
-  --upload-btn-hover-color-light: #ffffff;
-  --upload-btn-shadow-light: rgba(0, 0, 0, 0.05);
-  --upload-btn-hover-shadow-light: rgba(0, 123, 255, 0.2);
-  --upload-svg-fill-light: currentColor; /* SVG fill adapts to current color */
-  --upload-svg-hover-fill-light: #ffffff;
-}
-
-/* Dark mode variables */
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background-color: #282c34; /* Dark background */
-    --text-color: #e0e0e0; /* Light text */
-    --container-bg: #3a3f47; /* Slightly lighter dark for container */
-    --container-box-shadow: rgba(0, 0, 0, 0.5); /* More prominent shadow in dark mode */
-    --title-color: #ffffff; /* White title */
-    --title-underline: #66b3ff; /* Lighter blue for underline */
-    --label-color: #b0b0b0; /* Lighter grey for labels */
-    --input-border: #555;
-    --input-focus-border: #66b3ff;
-    --input-focus-bg: #4a4f57;
-    --code-bg: #444;
-    --button-bg: #66b3ff; /* Lighter blue for primary button */
-    --button-hover-bg: #4da6ff;
-    --button-text: #282c34; /* Dark text on lighter blue button */
-
-    --primary-low-mid: #555; /* Example dark value for primary-low-mid */
-    --secondary: #333; /* Example dark value for secondary */
-
-    --upload-btn-bg: #4a4f57; /* Dark background for upload button */
-    --upload-btn-color: #66b3ff; /* Lighter blue for upload button text/border */
-    --upload-btn-border: #66b3ff;
-    --upload-btn-hover-bg: #66b3ff;
-    --upload-btn-hover-color: #3a3f47; /* Darker text when hovered */
-    --upload-btn-shadow: rgba(0, 0, 0, 0.4);
-    --upload-btn-hover-shadow: rgba(0, 123, 255, 0.5);
-    --upload-svg-fill: currentColor; /* SVG fill adapts to current color */
-    --upload-svg-hover-fill: #3a3f47;
-  }
-}
-
-/* Light mode defaults (or explicit light mode if preferred, applied as initial values) */
-/* These will be overridden by the dark mode media query if applicable */
-:root {
-  --background-color: var(--background-color-light);
-  --text-color: var(--text-color-light);
-  --container-bg: var(--container-bg-light);
-  --container-box-shadow: var(--container-box-shadow-light);
-  --title-color: var(--title-color-light);
-  --title-underline: var(--title-underline-light);
-  --label-color: var(--label-color-light);
-  --input-border: var(--input-border-light);
-  --input-focus-border: var(--input-focus-border-light);
-  --input-focus-bg: var(--input-focus-bg-light);
-  --code-bg: var(--code-bg-light);
-  --button-bg: var(--button-bg-light);
-  --button-hover-bg: var(--button-hover-bg-light);
-  --button-text: var(--button-text-light);
-
-  --primary-low-mid: var(--primary-low-mid-light);
-  --secondary: var(--secondary-light);
-
-  --upload-btn-bg: var(--upload-btn-bg-light);
-  --upload-btn-color: var(--upload-btn-color-light);
-  --upload-btn-border: var(--upload-btn-border-light);
-  --upload-btn-hover-bg: var(--upload-btn-hover-bg-light);
-  --upload-btn-hover-color: var(--upload-btn-hover-color-light);
-  --upload-btn-shadow: var(--upload-btn-shadow-light);
-  --upload-btn-hover-shadow: var(--upload-btn-hover-shadow-light);
-  --upload-svg-fill: var(--upload-svg-fill-light);
-  --upload-svg-hover-fill: var(--upload-svg-hover-fill-light);
-}
-
-
 body.custom-wizard {
-  background-image: url($background); /* Ensure $background changes if needed for dark mode */
+  background-image: url($background);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -109,27 +10,25 @@ body.custom-wizard {
   align-items: center;
   justify-content: center;
   font-family: 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-  color: var(--text-color); /* Main body text color */
-  background-color: var(--background-color);
-  overflow: hidden !important;
+  color: #1c1c1c;
+  background-color: #f9f9f9;
 
   .wizard-container {
-    background-color: var(--container-bg);
+    background-color: #ffffff;
     padding: 2.5rem 2rem;
     border-radius: 25px;
-    box-shadow: 0 2px 10px var(--container-box-shadow);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
     max-width: 540px;
     width: 100%;
     box-sizing: border-box;
   }
 
-  /* This is likely where the "blue thing" refers to the title underline */
   .wizard-step-title p {
     font-size: 1.375rem;
     font-weight: 600;
     margin-bottom: 1.5rem;
-    color: var(--title-color); /* Title text color */
-    background-image: linear-gradient(to bottom, transparent 80%, var(--title-underline) 0%); /* Blue underline */
+    color: #282828;
+    background-image: linear-gradient(to bottom, transparent 80%, #0077cc 0%);
     background-size: 100% 0.3em;
     background-repeat: no-repeat;
     background-position: 0 100%;
@@ -143,7 +42,7 @@ body.custom-wizard {
       display: block;
       font-weight: 500;
       margin-bottom: 0.5em;
-      color: var(--label-color); /* Label text color */
+      color: #444;
     }
 
     input[type="text"],
@@ -151,18 +50,15 @@ body.custom-wizard {
     textarea {
       width: 100%;
       padding: 0.75rem 1rem;
-      border: 1px solid var(--input-border);
+      border: 1px solid #ddd;
       border-radius: 8px;
       font-size: 1rem;
       transition: border 0.2s ease-in-out;
-      color: var(--text-color); /* Input text color */
-      background-color: var(--container-bg); /* Input background color, can be adjusted */
-
 
       &:focus {
-        border-color: var(--input-focus-border);
+        border-color: #0077cc;
         outline: none;
-        background-color: var(--input-focus-bg);
+        background-color: #fefefe;
       }
     }
   }
@@ -170,22 +66,21 @@ body.custom-wizard {
   input[type="checkbox"] {
     margin-right: 0.6em;
     vertical-align: middle;
-    accent-color: var(--button-bg); /* Checkbox accent color (the blue part) */
+    accent-color: #0077cc;
   }
 
   code {
     font-family: 'Courier New', Courier, monospace;
-    background-color: var(--code-bg);
+    background-color: #f1f3f5;
     padding: 0.2em 0.4em;
     border-radius: 4px;
     font-size: 0.95em;
-    color: var(--text-color); /* Code text color */
   }
 
   button {
     padding: 0.75em 1.5em;
-    background-color: var(--button-bg); /* Button blue background */
-    color: var(--button-text); /* Button text color */
+    background-color: #0077cc;
+    color: #fff;
     border: none;
     border-radius: 8px;
     font-weight: 600;
@@ -193,19 +88,18 @@ body.custom-wizard {
     font-size: 1rem;
 
     &:hover {
-      background-color: var(--button-hover-bg);
+      background-color: #005fa3;
     }
   }
 }
 
 body.custom-wizard .wizard-column .wizard-footer {
-    border-top: 1px solid var(--primary-low-mid); /* Footer border color */
-    background-color: var(--secondary); /* Footer background color */
+    border-top: 1px solid var(--primary-low-mid);
+    background-color: var(--secondary);
     padding: .5em;
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
-    text-align: center;
-    color: var(--text-color); /* Footer text color */
+    text-align: center; /* Center inline elements like images or spans */
 }
 .wizard-step-title {
   text-align: center !important;
@@ -214,7 +108,6 @@ body.custom-wizard .wizard-column .wizard-footer {
   margin-bottom: 1rem !important;
   text-decoration: none !important;
   border: none !important;
-  color: var(--title-color) !important; /* Ensure this is also controlled by a variable */
 }
 
 .wizard-step-title p {
@@ -224,9 +117,9 @@ body.custom-wizard .wizard-column .wizard-footer {
 }
 
 .wizard-column .wizard-btn-upload-file {
-  background-color: var(--upload-btn-bg) !important;
-  color: var(--upload-btn-color) !important; /* Upload button text color (blue) */
-  border: 1px solid var(--upload-btn-border) !important; /* Upload button border color (blue) */
+  background-color: #ffffff !important;
+  color: #007BFF !important;
+  border: 1px solid #007BFF !important;
   padding: 0.6rem 1.2rem !important;
   border-radius: 30px !important;
   font-size: 0.95rem !important;
@@ -235,15 +128,15 @@ body.custom-wizard .wizard-column .wizard-footer {
   align-items: center !important;
   justify-content: center !important;
   cursor: pointer !important;
-  box-shadow: 0 2px 5px var(--upload-btn-shadow) !important;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05) !important;
   transition: all 0.2s ease-in-out !important;
   text-decoration: none !important;
 }
 
 .wizard-column .wizard-btn-upload-file:hover {
-  background-color: var(--upload-btn-hover-bg) !important;
-  color: var(--upload-btn-hover-color) !important;
-  box-shadow: 0 4px 10px var(--upload-btn-hover-shadow) !important;
+  background-color: #007BFF !important;
+  color: #ffffff !important;
+  box-shadow: 0 4px 10px rgba(0, 123, 255, 0.2) !important;
   transform: translateY(-2px) !important;
 }
 
@@ -251,10 +144,14 @@ body.custom-wizard .wizard-column .wizard-footer {
   margin-right: 0.5rem !important;
   width: 16px !important;
   height: 16px !important;
-  fill: var(--upload-svg-fill) !important; /* SVG fill color */
+  fill: currentColor !important;
   transition: fill 0.2s !important;
 }
 
 .wizard-column .wizard-btn-upload-file:hover svg {
-  fill: var(--upload-svg-hover-fill) !important;
+  fill: #ffffff !important;
+}
+
+body.custom-wizard {
+  overflow: hidden !important;
 }
