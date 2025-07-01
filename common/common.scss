@@ -115,3 +115,39 @@ body.custom-wizard .wizard-column .wizard-footer {
   text-decoration: none !important;
   border: none !important;
 }
+
+.wizard-column .wizard-btn-upload-file {
+  background-color: #ffffff;
+  color: #007BFF;
+  border: 1px solid #007BFF;
+  padding: 0.6rem 1.2rem;
+  border-radius: 30px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+  transition: all 0.2s ease-in-out;
+}
+
+.wizard-column .wizard-btn-upload-file:hover {
+  background-color: #007BFF;
+  color: #fff;
+  box-shadow: 0 4px 10px rgba(0, 123, 255, 0.2);
+  transform: translateY(-2px);
+}
+
+.wizard-column .wizard-btn-upload-file svg {
+  margin-right: 0.5rem;
+  width: 16px;
+  height: 16px;
+  fill: currentColor;
+  transition: fill 0.2s;
+}
+
+.wizard-column .wizard-btn-upload-file:hover svg {
+  fill: #fff;
+}
+
