@@ -92,3 +92,18 @@ body.custom-wizard {
     }
   }
 }
+
+body.custom-wizard .wizard-column .wizard-footer {
+    border-top: 1px solid var(--primary-low-mid);
+    background-color: var(--secondary);
+    padding: .5em;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    text-align: center; /* Center inline elements like images or spans */
+}
+
+body.custom-wizard .wizard-column .wizard-footer img.logo {
+    transform: scale(3);          /* 3x size */
+    display: inline-block;        /* Ensure it stays inline for text-align to work */
+    vertical-align: middle;       /* Vertical alignment */
+}
