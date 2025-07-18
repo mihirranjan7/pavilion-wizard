@@ -1,5 +1,5 @@
 body.custom-wizard {
-  background-image: url($background);
+  background-image: url($background); /* Keep your custom background */
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -9,40 +9,49 @@ body.custom-wizard {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-family: 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-  color: #1c1c1c;
-  background-color: #f9f9f9;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; /* More Instagram-like font stack */
+  color: #262626; /* Darker, softer black for text */
+  background-color: #fafafa; /* Lighter, subtle background for overall page */
+  overflow: hidden; /* Keep overflow hidden */
 
   .wizard-container {
     background-color: #ffffff;
     padding: 2.5rem 2rem;
-    border-radius: 25px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-    max-width: 540px;
+    border-radius: 12px; /* Softer rounded corners */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); /* More pronounced, softer shadow */
+    max-width: 480px; /* Slightly narrower for a more focused feel */
     width: 100%;
     box-sizing: border-box;
+    border: 1px solid #dbdbdb; /* Subtle border like Instagram cards */
+  }
+
+  .wizard-step-title {
+    text-align: center;
+    font-size: 1.6rem; /* Slightly smaller, more refined title */
+    font-weight: 600; /* Stays bold */
+    margin-bottom: 1.5rem;
+    color: #262626;
+    /* Remove background gradient for title for a cleaner look */
+    background-image: none;
+    padding-bottom: 0;
+    display: block; /* Ensure it takes full width if needed */
   }
 
   .wizard-step-title p {
-    font-size: 1.375rem;
-    font-weight: 600;
-    margin-bottom: 1.5rem;
-    color: #282828;
-    background-image: linear-gradient(to bottom, transparent 80%, #0077cc 0%);
-    background-size: 100% 0.3em;
-    background-repeat: no-repeat;
-    background-position: 0 100%;
-    padding-bottom: 0.1em;
-    display: inline;
+    margin: 0;
+    text-decoration: none;
+    border: none;
   }
 
   .wizard-field {
     margin-bottom: 1.25em;
+
     label {
       display: block;
       font-weight: 500;
-      margin-bottom: 0.5em;
-      color: #444;
+      margin-bottom: 0.6em; /* Slightly more space */
+      color: #8e8e8e; /* Lighter grey for labels */
+      font-size: 0.9em; /* Slightly smaller label text */
     }
 
     input[type="text"],
@@ -50,15 +59,17 @@ body.custom-wizard {
     textarea {
       width: 100%;
       padding: 0.75rem 1rem;
-      border: 1px solid #ddd;
-      border-radius: 8px;
+      border: 1px solid #dbdbdb; /* Lighter border for inputs */
+      border-radius: 6px; /* Softer input rounded corners */
       font-size: 1rem;
-      transition: border 0.2s ease-in-out;
+      transition: border-color 0.2s ease-in-out, background-color 0.2s ease-in-out; /* Smooth transitions */
+      background-color: #fafafa; /* Subtle input background */
+      color: #262626;
 
       &:focus {
-        border-color: #0077cc;
+        border-color: #a8a8a8; /* Subtle focus border */
         outline: none;
-        background-color: #fefefe;
+        background-color: #ffffff; /* White on focus */
       }
     }
   }
@@ -66,77 +77,71 @@ body.custom-wizard {
   input[type="checkbox"] {
     margin-right: 0.6em;
     vertical-align: middle;
-    accent-color: #0077cc;
+    accent-color: #0095f6; /* Instagram blue for checkboxes */
   }
 
   code {
-    font-family: 'Courier New', Courier, monospace;
-    background-color: #f1f3f5;
+    font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace; /* More modern monospace font */
+    background-color: #f0f2f5; /* Lighter code background */
     padding: 0.2em 0.4em;
     border-radius: 4px;
     font-size: 0.95em;
+    color: #262626;
   }
 
   button {
-    padding: 0.75em 1.5em;
-    background-color: #0077cc;
+    padding: 0.8em 1.5em; /* Slightly more vertical padding */
+    background-color: #0095f6; /* Instagram blue for buttons */
     color: #fff;
     border: none;
-    border-radius: 8px;
+    border-radius: 8px; /* Consistent button rounded corners */
     font-weight: 600;
     cursor: pointer;
     font-size: 1rem;
+    transition: background-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
 
     &:hover {
-      background-color: #005fa3;
+      background-color: #007acb; /* Slightly darker blue on hover */
+      box-shadow: 0 2px 8px rgba(0, 149, 246, 0.2); /* Subtle hover shadow */
     }
   }
 }
 
+/* --- */
+
 body.custom-wizard .wizard-column .wizard-footer {
-    border-top: 1px solid var(--primary-low-mid);
-    background-color: var(--secondary);
-    padding: .5em;
-    border-bottom-left-radius: 5px;
-    border-bottom-right-radius: 5px;
-    text-align: center; /* Center inline elements like images or spans */
-}
-.wizard-step-title {
-  text-align: center !important;
-  font-size: 1.8rem !important;
-  font-weight: 700 !important;
-  margin-bottom: 1rem !important;
-  text-decoration: none !important;
-  border: none !important;
+  border-top: 1px solid #efefef; /* Lighter border for footer */
+  background-color: #ffffff; /* White footer background */
+  padding: 1em 1.5em; /* More padding */
+  border-bottom-left-radius: 12px; /* Match container border-radius */
+  border-bottom-right-radius: 12px; /* Match container border-radius */
+  text-align: center;
+  margin-top: 1.5rem; /* Space between content and footer */
 }
 
-.wizard-step-title p {
-  margin: 0 !important;
-  text-decoration: none !important;
-  border: none !important;
-}
+/* --- */
 
 .wizard-column .wizard-btn-upload-file {
   background-color: #ffffff !important;
-  color: #007BFF !important;
-  border: 1px solid #007BFF !important;
+  color: #0095f6 !important; /* Instagram blue for upload button text */
+  border: 1px solid #0095f6 !important; /* Instagram blue border */
   padding: 0.6rem 1.2rem !important;
-  border-radius: 30px !important;
+  border-radius: 8px !important; /* Consistent rounded corners */
   font-size: 0.95rem !important;
   font-weight: 600 !important;
   display: inline-flex !important;
   align-items: center !important;
   justify-content: center !important;
   cursor: pointer !important;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05) !important;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.03) !important; /* Softer shadow */
   transition: all 0.2s ease-in-out !important;
   text-decoration: none !important;
 }
 
 .wizard-column .wizard-btn-upload-file:hover {
-  background-color: #007BFF !important;
+  background-color: #0095f6 !important; /* Instagram blue on hover */
   color: #ffffff !important;
-  box-shadow: 0 4px 10px rgba(0, 123, 255, 0.2) !important;
+  box-shadow: 0 4px 10px rgba(0, 149, 246, 0.2) !important; /* Blue hover shadow */
   transform: translateY(-2px) !important;
 }
 
@@ -150,8 +155,4 @@ body.custom-wizard .wizard-column .wizard-footer {
 
 .wizard-column .wizard-btn-upload-file:hover svg {
   fill: #ffffff !important;
-}
-
-body.custom-wizard {
-  overflow: hidden !important;
 }
