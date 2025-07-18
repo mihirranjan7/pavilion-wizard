@@ -7,152 +7,167 @@ body.custom-wizard {
   padding: 0;
   min-height: 100vh;
   display: flex;
-  align-items: center;
-  justify-content: center;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; /* More Instagram-like font stack */
+  align-items: center; /* Vertically center the wizard content block */
+  justify-content: center; /* Horizontally center the wizard content block */
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; /* Instagram-like font stack */
   color: #262626; /* Darker, softer black for text */
-  background-color: #fafafa; /* Lighter, subtle background for overall page */
-  overflow: hidden; /* Keep overflow hidden */
+  background-color: #ffffff; /* Pure white background for the entire page */
+  overflow: hidden; /* Prevent scrolling if content is precisely sized */
+}
 
-  .wizard-container {
-    background-color: #ffffff;
-    padding: 2.5rem 2rem;
-    border-radius: 12px; /* Softer rounded corners */
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); /* More pronounced, softer shadow */
-    max-width: 480px; /* Slightly narrower for a more focused feel */
-    width: 100%;
-    box-sizing: border-box;
-    border: 1px solid #dbdbdb; /* Subtle border like Instagram cards */
-  }
+body.custom-wizard .wizard-container {
+  background-color: #ffffff;
+  padding: 2.5rem 1.5rem; /* Padding applied directly to the container */
+  border-radius: 0; /* No rounded corners for a full-screen feel */
+  box-shadow: none; /* No shadow for ultimate minimalism */
+  max-width: 480px; /* Instagram typically shows content within a max-width */
+  width: 100%; /* Ensure it always takes full available width up to max-width */
+  box-sizing: border-box;
+  display: flex; /* Use flexbox for content arrangement within the container */
+  flex-direction: column; /* Stack elements vertically */
+  align-items: stretch; /* Stretch items to fill the width, like inputs */
+  justify-content: flex-start; /* Align content to the top within its own block */
+  border: none; /* No border */
+}
 
-  .wizard-step-title {
-    text-align: center;
-    font-size: 1.6rem; /* Slightly smaller, more refined title */
-    font-weight: 600; /* Stays bold */
-    margin-bottom: 1.5rem;
-    color: #262626;
-    /* Remove background gradient for title for a cleaner look */
-    background-image: none;
-    padding-bottom: 0;
-    display: block; /* Ensure it takes full width if needed */
-  }
+.wizard-step-title {
+  text-align: center !important;
+  font-size: 1.8rem !important; /* Prominent title */
+  font-weight: 600 !important;
+  margin-bottom: 2rem !important; /* More space below title */
+  color: #262626 !important;
+  background-image: none !important; /* Remove background gradient */
+  padding-bottom: 0 !important;
+  display: block !important;
+  text-decoration: none !important;
+  border: none !important;
+}
 
-  .wizard-step-title p {
-    margin: 0;
-    text-decoration: none;
-    border: none;
-  }
+.wizard-step-title p {
+  margin: 0 !important;
+  text-decoration: none !important;
+  border: none !important;
+}
 
-  .wizard-field {
-    margin-bottom: 1.25em;
-
-    label {
-      display: block;
-      font-weight: 500;
-      margin-bottom: 0.6em; /* Slightly more space */
-      color: #8e8e8e; /* Lighter grey for labels */
-      font-size: 0.9em; /* Slightly smaller label text */
-    }
-
-    input[type="text"],
-    input[type="email"],
-    textarea {
-      width: 100%;
-      padding: 0.75rem 1rem;
-      border: 1px solid #dbdbdb; /* Lighter border for inputs */
-      border-radius: 6px; /* Softer input rounded corners */
-      font-size: 1rem;
-      transition: border-color 0.2s ease-in-out, background-color 0.2s ease-in-out; /* Smooth transitions */
-      background-color: #fafafa; /* Subtle input background */
-      color: #262626;
-
-      &:focus {
-        border-color: #a8a8a8; /* Subtle focus border */
-        outline: none;
-        background-color: #ffffff; /* White on focus */
-      }
-    }
-  }
-
-  input[type="checkbox"] {
-    margin-right: 0.6em;
-    vertical-align: middle;
-    accent-color: #0095f6; /* Instagram blue for checkboxes */
-  }
-
-  code {
-    font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace; /* More modern monospace font */
-    background-color: #f0f2f5; /* Lighter code background */
-    padding: 0.2em 0.4em;
-    border-radius: 4px;
+.wizard-field {
+  margin-bottom: 1.5em; /* More vertical spacing between fields */
+  
+  label {
+    display: block;
+    font-weight: 500;
+    margin-bottom: 0.6em;
+    color: #8e8e8e; /* Lighter grey for labels */
     font-size: 0.95em;
-    color: #262626;
   }
 
-  button {
-    padding: 0.8em 1.5em; /* Slightly more vertical padding */
-    background-color: #0095f6; /* Instagram blue for buttons */
-    color: #fff;
-    border: none;
-    border-radius: 8px; /* Consistent button rounded corners */
-    font-weight: 600;
-    cursor: pointer;
+  input[type="text"],
+  input[type="email"],
+  textarea {
+    width: 100%;
+    padding: 0.8rem 1rem; /* Slightly more padding for inputs */
+    border: 1px solid #dbdbdb; /* Light border */
+    border-radius: 4px; /* Slightly less rounded for a crisper feel */
     font-size: 1rem;
-    transition: background-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    transition: border-color 0.2s ease-in-out, background-color 0.2s ease-in-out;
+    background-color: #fafafa; /* Subtle input background */
+    color: #262626;
 
-    &:hover {
-      background-color: #007acb; /* Slightly darker blue on hover */
-      box-shadow: 0 2px 8px rgba(0, 149, 246, 0.2); /* Subtle hover shadow */
+    &:focus {
+      border-color: #b3b3b3; /* Subtle focus border, slightly darker */
+      outline: none;
+      background-color: #ffffff;
     }
   }
 }
 
-/* --- */
-
-body.custom-wizard .wizard-column .wizard-footer {
-  border-top: 1px solid #efefef; /* Lighter border for footer */
-  background-color: #ffffff; /* White footer background */
-  padding: 1em 1.5em; /* More padding */
-  border-bottom-left-radius: 12px; /* Match container border-radius */
-  border-bottom-right-radius: 12px; /* Match container border-radius */
-  text-align: center;
-  margin-top: 1.5rem; /* Space between content and footer */
+input[type="checkbox"] {
+  margin-right: 0.6em;
+  vertical-align: middle;
+  accent-color: #0095f6; /* Instagram blue */
 }
 
-/* --- */
+code {
+  font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace; /* More modern monospace font */
+  background-color: #f0f2f5; /* Lighter code background */
+  padding: 0.2em 0.4em;
+  border-radius: 4px;
+  font-size: 0.95em;
+  color: #262626;
+}
+
+button {
+  padding: 0.9em 1.5em; /* More padding for buttons */
+  background-color: #0095f6; /* Instagram blue */
+  color: #fff;
+  border: none;
+  border-radius: 8px; /* Consistent button rounded corners */
+  font-weight: 600;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.2s ease-in-out;
+
+  &:hover {
+    background-color: #007acb; /* Slightly darker blue on hover */
+  }
+}
+
+---
+
+## Footer Styling
+
+.wizard-column .wizard-footer {
+  border-top: 1px solid #efefef; /* Light separator */
+  background-color: #ffffff; /* White footer background */
+  padding: 1em 1.5em; /* Consistent padding */
+  text-align: center;
+  margin-top: auto; /* Pushes the footer to the bottom of the flex container */
+  width: 100%; /* Ensure footer takes full width */
+  box-sizing: border-box; /* Include padding in width */
+  border-bottom-left-radius: 0 !important; /* No rounded corners for footer */
+  border-bottom-right-radius: 0 !important; /* No rounded corners for footer */
+}
+
+---
+
+## Upload Button Styling
 
 .wizard-column .wizard-btn-upload-file {
   background-color: #ffffff !important;
-  color: #0095f6 !important; /* Instagram blue for upload button text */
-  border: 1px solid #0095f6 !important; /* Instagram blue border */
-  padding: 0.6rem 1.2rem !important;
-  border-radius: 8px !important; /* Consistent rounded corners */
+  color: #0095f6 !important;
+  border: 1px solid #dbdbdb !important; /* Lighter border for a more minimal look */
+  padding: 0.7rem 1.4rem !important; /* Slightly more generous padding */
+  border-radius: 8px !important;
   font-size: 0.95rem !important;
   font-weight: 600 !important;
   display: inline-flex !important;
   align-items: center !important;
   justify-content: center !important;
   cursor: pointer !important;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.03) !important; /* Softer shadow */
+  box-shadow: none !important; /* Remove shadow for minimalism */
   transition: all 0.2s ease-in-out !important;
   text-decoration: none !important;
 }
 
 .wizard-column .wizard-btn-upload-file:hover {
-  background-color: #0095f6 !important; /* Instagram blue on hover */
-  color: #ffffff !important;
-  box-shadow: 0 4px 10px rgba(0, 149, 246, 0.2) !important; /* Blue hover shadow */
-  transform: translateY(-2px) !important;
+  background-color: #f2f2f2 !important; /* Very subtle grey on hover for upload */
+  color: #0095f6 !important; /* Keep text color same */
+  box-shadow: none !important;
+  transform: translateY(-1px) !important; /* Slight lift */
 }
 
 .wizard-column .wizard-btn-upload-file svg {
   margin-right: 0.5rem !important;
-  width: 16px !important;
-  height: 16px !important;
+  width: 18px !important; /* Slightly larger icon */
+  height: 18px !important;
   fill: currentColor !important;
   transition: fill 0.2s !important;
 }
 
 .wizard-column .wizard-btn-upload-file:hover svg {
-  fill: #ffffff !important;
+  fill: #0095f6 !important; /* Keep icon color consistent */
+}
+
+/* Ensure body remains hidden for cleaner transitions if needed */
+body.custom-wizard {
+  overflow: hidden !important;
 }
