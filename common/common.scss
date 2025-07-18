@@ -111,10 +111,7 @@ button {
   }
 }
 
----
-
-## Footer Styling
-
+/* Footer Styling */
 .wizard-column .wizard-footer {
   border-top: 1px solid #efefef; /* Light separator */
   background-color: #ffffff; /* White footer background */
@@ -127,10 +124,7 @@ button {
   border-bottom-right-radius: 0 !important; /* No rounded corners for footer */
 }
 
----
-
-## Upload Button Styling
-
+/* Upload Button Styling */
 .wizard-column .wizard-btn-upload-file {
   background-color: #ffffff !important;
   color: #0095f6 !important;
