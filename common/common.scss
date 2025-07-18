@@ -1,66 +1,68 @@
-/* Main Wizard Container */
+/* General Wizard Container - Responsive & Full-screen setup */
 .wizard-column {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    min-height: 100vh; /* Make the wizard container take full viewport height */
-    width: 100vw; /* Take full viewport width */
-    max-width: none; /* Remove max-width constraint for full-page feel */
-    padding: 0; /* Remove padding from the main container */
+    min-height: 100vh; /* Takes full viewport height */
+    width: 100%; /* Takes full viewport width */
+    padding: 0; /* No padding on the main container */
     box-sizing: border-box;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
     color: #262626; /* Instagram's primary text color */
-    background-color: #fafafa; /* Light background color similar to Instagram */
+    background-color: #fafafa; /* Light background similar to Instagram */
     margin: 0; /* Remove any default margins */
 }
 
+/* Contents within the wizard - Centers and limits width */
 .wizard-column-contents {
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 100%;
-    flex-grow: 1;
-    justify-content: center; /* Center content vertically */
-    padding: 20px; /* Add padding here instead of .wizard-column */
+    width: 100%; /* Take full width of parent */
+    flex-grow: 1; /* Allows content to take available space */
+    justify-content: center; /* Center content vertically within its space */
+    padding: 20px; /* Padding around the central content block */
     box-sizing: border-box;
+    max-width: 420px; /* Constrain the maximum width of the central content area for readability */
+    margin: auto; /* Centers the content block horizontally */
 }
 
-/* Wizard Step Styling - Making it borderless and full-width */
+/* Wizard Step Styling - The "card" area, now transparent */
 .wizard-step {
     background-color: transparent; /* Make background transparent */
     border: none; /* Remove border */
-    border-radius: 0; /* Remove border-radius */
-    padding: 0; /* Remove padding from the wizard step itself */
-    width: 100%;
-    max-width: 380px; /* Constrain internal content width */
+    border-radius: 0; /* No border-radius */
+    padding: 0; /* No padding on the step itself */
+    width: 100%; /* Takes full width of its parent (.wizard-column-contents) */
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
     align-items: center;
     box-shadow: none; /* Remove shadow */
+    text-align: center; /* Center text within the step */
 }
 
 .wizard-step-contents {
     width: 100%;
-    text-align: center;
-    padding: 20px; /* Add back content padding here */
-    box-sizing: border-box;
+    /* No additional padding here, padding from .wizard-column-contents should suffice for the overall block */
 }
 
+/* Titles and Descriptions */
 .wizard-step-title {
-    font-size: 26px; /* Slightly larger title */
+    font-size: clamp(22px, 6vw, 28px); /* Responsive font size */
     font-weight: 600;
-    margin-bottom: 10px;
+    margin-bottom: 12px;
     color: #262626;
     line-height: 1.2;
 }
 
 .wizard-step-description {
-    font-size: 15px; /* Slightly larger description */
+    font-size: clamp(14px, 4vw, 16px); /* Responsive font size */
     color: #8e8e8e;
-    margin-bottom: 30px; /* More space below description */
+    margin-bottom: 30px;
     line-height: 1.5;
+    padding: 0 10px; /* Small horizontal padding to prevent text from touching edges on very small screens */
 }
 
 /* Form Fields */
@@ -73,27 +75,27 @@
 
 .wizard-field {
     width: 100%;
-    margin-bottom: 18px; /* Slightly more space between fields */
+    margin-bottom: 18px;
 }
 
 .field-label {
-    display: none; /* Instagram typically doesn't show explicit labels for these inputs */
+    display: none; /* Instagram typically hides explicit labels for these fields */
 }
 
 .field-description {
-    font-size: 13px;
+    font-size: clamp(11px, 3.5vw, 13px); /* Responsive font size */
     color: #8e8e8e;
-    margin-top: 5px; /* Adjust spacing */
+    margin-top: 5px;
     margin-bottom: 10px;
     text-align: left;
-    padding: 0 5px; /* Little padding to align with input */
+    padding-left: 10px; /* Align description with the input field's visual start */
 }
 
 .input-area {
     width: 100%;
 }
 
-/* Dropdown/Select Kit Styling - Clean, borderless input look */
+/* Dropdown/Select Kit Styling - Input Field Look */
 .select-kit {
     width: 100%;
     position: relative;
@@ -103,14 +105,15 @@
     background-color: #efefef; /* Light grey background for input fields */
     border: 1px solid #dbdbdb; /* Subtle border */
     border-radius: 5px;
-    padding: 12px 15px; /* More padding */
+    padding: 12px 15px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     cursor: pointer;
-    font-size: 16px; /* Larger font in input */
+    font-size: clamp(15px, 4.5vw, 16px); /* Responsive font size */
     color: #262626;
     height: 48px; /* Fixed height for consistency */
+    box-sizing: border-box; /* Include padding and border in the element's total width and height */
 }
 
 .select-kit-selected-name .name {
@@ -119,15 +122,16 @@
     color: #8e8e8e; /* Placeholder-like color when "Select" */
 }
 
-.select-kit-selected-name[data-value]:not([data-value="Select"]) .name {
+/* Style for when an item is actually selected */
+.select-kit.has-selection .select-kit-selected-name .name {
     color: #262626; /* Darker text once selected */
 }
-
 
 .caret-icon {
     width: 12px;
     height: 12px;
-    fill: #8e8e8e; /* Caret icon color */
+    fill: #8e8e8e;
+    flex-shrink: 0; /* Prevent icon from shrinking */
 }
 
 .select-kit-body {
@@ -140,7 +144,7 @@
     border-radius: 8px; /* Rounded corners for the dropdown list */
     box-shadow: 0 5px 15px rgba(0,0,0,0.1);
     z-index: 10;
-    display: none; /* Hidden by default, will be shown by JS */
+    display: none; /* Hidden by default, requires JS to show */
     overflow: hidden; /* Ensure rounded corners */
 }
 
@@ -150,8 +154,8 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 30px; /* More space before footer */
-    padding: 0 20px; /* Match padding of contents */
+    margin-top: 30px; /* Space above footer */
+    padding: 0 20px; /* Match padding of contents for consistent look */
     box-sizing: border-box;
 }
 
@@ -159,7 +163,7 @@
     display: flex;
     align-items: center;
     width: 100%;
-    margin-bottom: 30px; /* Space between progress and buttons */
+    margin-bottom: 30px;
     position: relative;
     height: 4px;
     border-radius: 2px;
@@ -175,9 +179,9 @@
 
 .wizard-progress .black {
     height: 100%;
-    background-color: #0095f6;
+    background-color: #0095f6; /* Instagram blue for progress */
     border-radius: 2px;
-    /* width is set inline, e.g., style="width: 25%" */
+    /* width is set inline in HTML, e.g., style="width: 25%" */
 }
 
 .wizard-progress .screen {
@@ -191,8 +195,8 @@
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
-    top: 15px; /* Position further below the bar */
-    font-size: 13px;
+    top: 15px; /* Position below the bar */
+    font-size: clamp(11px, 3.5vw, 13px); /* Responsive font size */
     color: #8e8e8e;
     white-space: nowrap;
 }
@@ -205,12 +209,12 @@
 }
 
 .action-link.quit {
-    font-size: 14px;
-    color: #0095f6; /* Make exit link Instagram blue */
+    font-size: clamp(14px, 4vw, 15px); /* Responsive font size */
+    color: #0095f6;
     text-decoration: none;
     padding: 10px 15px;
     border-radius: 5px;
-    text-align: center; /* Center the link text */
+    text-align: center;
     order: 2; /* Put exit link below the next button */
 }
 
@@ -223,8 +227,8 @@
     color: #fff;
     border: none;
     border-radius: 5px;
-    padding: 12px 20px; /* More padding for a taller button */
-    font-size: 16px; /* Larger font for primary button */
+    padding: 12px 20px;
+    font-size: clamp(15px, 4.5vw, 16px); /* Responsive font size */
     font-weight: 600;
     cursor: pointer;
     display: flex;
@@ -241,14 +245,14 @@
 
 .wizard-btn svg {
     margin-left: 8px;
-    width: 14px; /* Slightly larger icon */
+    width: 14px;
     height: 14px;
     fill: #fff;
 }
 
 /* Clavikl Logo in Footer */
 .wizard-footer {
-    margin-top: 40px; /* More space before the very bottom logo */
+    margin-top: 40px;
     text-align: center;
     width: 100%;
     padding-bottom: 20px;
@@ -257,12 +261,18 @@
 .wizard-footer img {
     border-radius: 50%;
     object-fit: cover;
-    width: 38px; /* Slightly larger logo */
+    width: 38px;
     height: 38px;
 }
 
-/* Utility classes for icons (assuming Font Awesome or similar) */
+/* Utility classes for icons */
 .d-icon {
     display: inline-block;
     vertical-align: middle;
+}
+
+/* Basic hover/focus styles for accessibility and interaction */
+summary:focus, button:focus, a:focus {
+    outline: 2px solid #0095f6; /* Blue outline for focus */
+    outline-offset: 2px;
 }
