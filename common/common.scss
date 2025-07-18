@@ -4,15 +4,15 @@
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    min-height: 100vh; /* This will make the wizard container take full viewport height */
-    width: 100%;
-    max-width: 400px; /* Constrain width for a mobile-like experience */
-    padding: 20px;
+    min-height: 100vh; /* Make the wizard container take full viewport height */
+    width: 100vw; /* Take full viewport width */
+    max-width: none; /* Remove max-width constraint for full-page feel */
+    padding: 0; /* Remove padding from the main container */
     box-sizing: border-box;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
     color: #262626; /* Instagram's primary text color */
     background-color: #fafafa; /* Light background color similar to Instagram */
-    margin: 0 auto; /* Center the wizard horizontally if it doesn't take full width */
+    margin: 0; /* Remove any default margins */
 }
 
 .wizard-column-contents {
@@ -20,40 +20,46 @@
     flex-direction: column;
     align-items: center;
     width: 100%;
-    flex-grow: 1; /* Allows content to take available space */
+    flex-grow: 1;
     justify-content: center; /* Center content vertically */
+    padding: 20px; /* Add padding here instead of .wizard-column */
+    box-sizing: border-box;
 }
 
-/* Wizard Step Styling */
+/* Wizard Step Styling - Making it borderless and full-width */
 .wizard-step {
-    background-color: #fff;
-    border: 1px solid #dbdbdb; /* Light border */
-    border-radius: 8px; /* Slightly rounded corners */
-    padding: 30px;
+    background-color: transparent; /* Make background transparent */
+    border: none; /* Remove border */
+    border-radius: 0; /* Remove border-radius */
+    padding: 0; /* Remove padding from the wizard step itself */
     width: 100%;
+    max-width: 380px; /* Constrain internal content width */
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
     align-items: center;
-    box-shadow: 0 0 10px rgba(0,0,0,0.05); /* Subtle shadow */
+    box-shadow: none; /* Remove shadow */
 }
 
 .wizard-step-contents {
     width: 100%;
     text-align: center;
+    padding: 20px; /* Add back content padding here */
+    box-sizing: border-box;
 }
 
 .wizard-step-title {
-    font-size: 24px;
+    font-size: 26px; /* Slightly larger title */
     font-weight: 600;
     margin-bottom: 10px;
     color: #262626;
+    line-height: 1.2;
 }
 
 .wizard-step-description {
-    font-size: 14px;
-    color: #8e8e8e; /* Lighter text for descriptions */
-    margin-bottom: 25px;
+    font-size: 15px; /* Slightly larger description */
+    color: #8e8e8e;
+    margin-bottom: 30px; /* More space below description */
     line-height: 1.5;
 }
 
@@ -67,53 +73,56 @@
 
 .wizard-field {
     width: 100%;
-    margin-bottom: 15px;
+    margin-bottom: 18px; /* Slightly more space between fields */
 }
 
 .field-label {
-    display: block;
-    font-size: 14px;
-    font-weight: 600;
-    margin-bottom: 8px;
-    color: #262626;
-    text-align: left; /* Align label to the left */
+    display: none; /* Instagram typically doesn't show explicit labels for these inputs */
 }
 
 .field-description {
-    font-size: 12px;
+    font-size: 13px;
     color: #8e8e8e;
-    margin-top: -5px;
+    margin-top: 5px; /* Adjust spacing */
     margin-bottom: 10px;
-    text-align: left; /* Align description to the left */
+    text-align: left;
+    padding: 0 5px; /* Little padding to align with input */
 }
 
 .input-area {
     width: 100%;
 }
 
-/* Dropdown/Select Kit Styling */
+/* Dropdown/Select Kit Styling - Clean, borderless input look */
 .select-kit {
     width: 100%;
     position: relative;
 }
 
 .select-kit-header {
-    background-color: #fafafa;
-    border: 1px solid #dbdbdb;
+    background-color: #efefef; /* Light grey background for input fields */
+    border: 1px solid #dbdbdb; /* Subtle border */
     border-radius: 5px;
-    padding: 10px 15px;
+    padding: 12px 15px; /* More padding */
     display: flex;
     justify-content: space-between;
     align-items: center;
     cursor: pointer;
-    font-size: 14px;
+    font-size: 16px; /* Larger font in input */
     color: #262626;
+    height: 48px; /* Fixed height for consistency */
 }
 
 .select-kit-selected-name .name {
     flex-grow: 1;
     text-align: left;
+    color: #8e8e8e; /* Placeholder-like color when "Select" */
 }
+
+.select-kit-selected-name[data-value]:not([data-value="Select"]) .name {
+    color: #262626; /* Darker text once selected */
+}
+
 
 .caret-icon {
     width: 12px;
@@ -123,16 +132,16 @@
 
 .select-kit-body {
     position: absolute;
-    top: 100%; /* Position below the header */
+    top: calc(100% + 5px); /* Position slightly below the header */
     left: 0;
     right: 0;
     background-color: #fff;
     border: 1px solid #dbdbdb;
-    border-top: none;
-    border-radius: 0 0 5px 5px;
-    box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+    border-radius: 8px; /* Rounded corners for the dropdown list */
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
     z-index: 10;
     display: none; /* Hidden by default, will be shown by JS */
+    overflow: hidden; /* Ensure rounded corners */
 }
 
 /* Footer (Progress and Buttons) */
@@ -141,30 +150,32 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 20px;
+    margin-top: 30px; /* More space before footer */
+    padding: 0 20px; /* Match padding of contents */
+    box-sizing: border-box;
 }
 
 .wizard-progress {
     display: flex;
     align-items: center;
     width: 100%;
-    margin-bottom: 20px;
-    position: relative; /* For screen overlay */
-    height: 4px; /* Height of the progress bar */
+    margin-bottom: 30px; /* Space between progress and buttons */
+    position: relative;
+    height: 4px;
     border-radius: 2px;
-    background-color: #efefef; /* Background for the progress bar */
+    background-color: #efefef;
 }
 
 .wizard-progress .white {
     position: absolute;
     height: 100%;
     width: 100%;
-    background-color: transparent; /* This element seems redundant with current progress logic */
+    background-color: transparent;
 }
 
 .wizard-progress .black {
     height: 100%;
-    background-color: #0095f6; /* Instagram blue for progress */
+    background-color: #0095f6;
     border-radius: 2px;
     /* width is set inline, e.g., style="width: 25%" */
 }
@@ -173,75 +184,81 @@
     position: absolute;
     height: 100%;
     width: 100%;
-    background-color: transparent; /* Another potentially redundant element for visual effects */
+    background-color: transparent;
 }
 
 .wizard-progress span {
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
-    top: 10px; /* Position below the bar */
-    font-size: 12px;
+    top: 15px; /* Position further below the bar */
+    font-size: 13px;
     color: #8e8e8e;
-    white-space: nowrap; /* Prevent text wrapping */
+    white-space: nowrap;
 }
 
 .wizard-buttons {
     display: flex;
-    justify-content: space-between;
+    flex-direction: column; /* Stack buttons vertically */
     width: 100%;
-    margin-top: 15px;
+    gap: 12px; /* Space between buttons */
 }
 
 .action-link.quit {
     font-size: 14px;
-    color: #8e8e8e;
+    color: #0095f6; /* Make exit link Instagram blue */
     text-decoration: none;
     padding: 10px 15px;
     border-radius: 5px;
+    text-align: center; /* Center the link text */
+    order: 2; /* Put exit link below the next button */
 }
 
 .action-link.quit:hover {
-    color: #262626;
+    color: #007bff;
 }
 
 .wizard-btn {
-    background-color: #0095f6; /* Instagram blue */
+    background-color: #0095f6;
     color: #fff;
     border: none;
     border-radius: 5px;
-    padding: 10px 20px;
-    font-size: 14px;
+    padding: 12px 20px; /* More padding for a taller button */
+    font-size: 16px; /* Larger font for primary button */
     font-weight: 600;
     cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
     transition: background-color 0.2s ease;
+    width: 100%; /* Make button full width */
+    order: 1; /* Put next button first */
 }
 
 .wizard-btn.primary:hover {
-    background-color: #007bff; /* Darker blue on hover */
+    background-color: #007bff;
 }
 
 .wizard-btn svg {
     margin-left: 8px;
-    width: 12px;
-    height: 12px;
+    width: 14px; /* Slightly larger icon */
+    height: 14px;
     fill: #fff;
 }
 
 /* Clavikl Logo in Footer */
 .wizard-footer {
-    margin-top: 20px;
+    margin-top: 40px; /* More space before the very bottom logo */
     text-align: center;
     width: 100%;
-    padding-bottom: 20px; /* Add some padding at the bottom */
+    padding-bottom: 20px;
 }
 
 .wizard-footer img {
-    border-radius: 50%; /* Make the logo circular if it's square */
-    object-fit: cover; /* Ensure image covers the area */
+    border-radius: 50%;
+    object-fit: cover;
+    width: 38px; /* Slightly larger logo */
+    height: 38px;
 }
 
 /* Utility classes for icons (assuming Font Awesome or similar) */
