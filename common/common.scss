@@ -1,42 +1,59 @@
 body.custom-wizard {
-  background-image: url($background); /* Keep your custom background */
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+  background-image: none; /* Removed background image */
+  background-color: #ffffff; /* Pure white background for the entire page */
   margin: 0;
   padding: 0;
-  min-height: 100vh;
+  min-height: 100vh; /* Ensure it takes full viewport height */
+  width: 100vw; /* Ensure it takes full viewport width */
   display: flex;
-  align-items: center; /* Vertically center the wizard content block */
-  justify-content: center; /* Horizontally center the wizard content block */
+  flex-direction: column; /* Arrange content vertically */
+  align-items: center; /* Horizontally center the content column */
+  justify-content: flex-start; /* Start content from the top */
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; /* Instagram-like font stack */
   color: #262626; /* Darker, softer black for text */
-  background-color: #ffffff; /* Pure white background for the entire page */
-  overflow: hidden; /* Prevent scrolling if content is precisely sized */
+  overflow: hidden; /* Prevent body scrolling */
 }
 
+/* The wizard-container now acts as the central content column, without being a "box" */
 body.custom-wizard .wizard-container {
-  background-color: #ffffff;
-  padding: 2.5rem 1.5rem; /* Padding applied directly to the container */
-  border-radius: 0; /* No rounded corners for a full-screen feel */
-  box-shadow: none; /* No shadow for ultimate minimalism */
-  max-width: 480px; /* Instagram typically shows content within a max-width */
-  width: 100%; /* Ensure it always takes full available width up to max-width */
+  background-color: transparent; /* No background color */
+  padding: 0 1.5rem; /* Horizontal padding for content, no top/bottom padding */
+  border-radius: 0; /* No rounded corners */
+  box-shadow: none; /* No shadow */
+  max-width: 480px; /* Constrain content width for mobile-like experience */
+  width: 100%; /* Take full width up to max-width */
+  min-height: 100vh; /* Allow it to stretch to full height for internal flex distribution */
   box-sizing: border-box;
-  display: flex; /* Use flexbox for content arrangement within the container */
-  flex-direction: column; /* Stack elements vertically */
-  align-items: stretch; /* Stretch items to fill the width, like inputs */
-  justify-content: flex-start; /* Align content to the top within its own block */
+  display: flex;
+  flex-direction: column; /* Stack logo, content, footer */
+  align-items: stretch; /* Stretch children (like inputs) to full width */
+  justify-content: flex-start; /* Content starts from top */
   border: none; /* No border */
 }
 
+/* --- Logo Styling (Assumes you have an element with this class in your HTML) --- */
+/* Example: <div class="wizard-logo"><img src="/path/to/your/logo.svg" alt="Logo"></div> */
+.wizard-logo {
+  text-align: center;
+  padding-top: 3.5rem; /* More space from the very top */
+  margin-bottom: 2.5rem; /* Space below the logo */
+}
+
+.wizard-logo img {
+  max-width: 120px; /* Size of Instagram's text logo */
+  height: auto;
+  display: block; /* Ensure no extra space below image */
+  margin: 0 auto; /* Center the image if it's smaller than its container */
+}
+
+/* --- Wizard Step Title --- */
 .wizard-step-title {
   text-align: center !important;
-  font-size: 1.8rem !important; /* Prominent title */
+  font-size: 1.8rem !important;
   font-weight: 600 !important;
-  margin-bottom: 2rem !important; /* More space below title */
+  margin-bottom: 2.5rem !important; /* Ample space below the title */
   color: #262626 !important;
-  background-image: none !important; /* Remove background gradient */
+  background-image: none !important; /* No underline/gradient */
   padding-bottom: 0 !important;
   display: block !important;
   text-decoration: none !important;
@@ -49,13 +66,14 @@ body.custom-wizard .wizard-container {
   border: none !important;
 }
 
+/* --- Wizard Fields (Inputs, Labels) --- */
 .wizard-field {
-  margin-bottom: 1.5em; /* More vertical spacing between fields */
+  margin-bottom: 1.8em; /* Generous vertical spacing between fields */
   
   label {
     display: block;
     font-weight: 500;
-    margin-bottom: 0.6em;
+    margin-bottom: 0.7em; /* More space between label and input */
     color: #8e8e8e; /* Lighter grey for labels */
     font-size: 0.95em;
   }
@@ -64,18 +82,18 @@ body.custom-wizard .wizard-container {
   input[type="email"],
   textarea {
     width: 100%;
-    padding: 0.8rem 1rem; /* Slightly more padding for inputs */
+    padding: 0.9rem 1.2rem; /* Increased padding for larger tap targets */
     border: 1px solid #dbdbdb; /* Light border */
-    border-radius: 4px; /* Slightly less rounded for a crisper feel */
+    border-radius: 4px; /* Slightly crisper corners */
     font-size: 1rem;
     transition: border-color 0.2s ease-in-out, background-color 0.2s ease-in-out;
     background-color: #fafafa; /* Subtle input background */
     color: #262626;
 
     &:focus {
-      border-color: #b3b3b3; /* Subtle focus border, slightly darker */
+      border-color: #a8a8a8; /* Subtle focus border */
       outline: none;
-      background-color: #ffffff;
+      background-color: #ffffff; /* White on focus */
     }
   }
 }
@@ -87,16 +105,17 @@ input[type="checkbox"] {
 }
 
 code {
-  font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace; /* More modern monospace font */
-  background-color: #f0f2f5; /* Lighter code background */
+  font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace;
+  background-color: #f0f2f5;
   padding: 0.2em 0.4em;
   border-radius: 4px;
   font-size: 0.95em;
   color: #262626;
 }
 
+/* --- Buttons --- */
 button {
-  padding: 0.9em 1.5em; /* More padding for buttons */
+  padding: 1em 1.5em; /* More padding for buttons */
   background-color: #0095f6; /* Instagram blue */
   color: #fff;
   border: none;
@@ -105,31 +124,34 @@ button {
   cursor: pointer;
   font-size: 1rem;
   transition: background-color 0.2s ease-in-out;
+  width: 100%; /* Make button take full width */
+  margin-top: 1.5rem; /* Space above button */
 
   &:hover {
     background-color: #007acb; /* Slightly darker blue on hover */
   }
 }
 
-/* Footer Styling */
+/* --- Footer Styling --- */
+/* Pushes the footer to the bottom of the .wizard-container */
 .wizard-column .wizard-footer {
-  border-top: 1px solid #efefef; /* Light separator */
+  border-top: 1px solid #efefef; /* Light separator line */
   background-color: #ffffff; /* White footer background */
-  padding: 1em 1.5em; /* Consistent padding */
+  padding: 1.2em 0; /* Vertical padding, no horizontal (container handles that) */
   text-align: center;
-  margin-top: auto; /* Pushes the footer to the bottom of the flex container */
-  width: 100%; /* Ensure footer takes full width */
-  box-sizing: border-box; /* Include padding in width */
-  border-bottom-left-radius: 0 !important; /* No rounded corners for footer */
-  border-bottom-right-radius: 0 !important; /* No rounded corners for footer */
+  margin-top: auto; /* This is key: pushes the footer to the very bottom */
+  width: 100%; /* Ensure footer takes full width of the container */
+  box-sizing: border-box;
+  border-bottom-left-radius: 0 !important;
+  border-bottom-right-radius: 0 !important;
 }
 
-/* Upload Button Styling */
+/* --- Upload Button Styling --- */
 .wizard-column .wizard-btn-upload-file {
   background-color: #ffffff !important;
   color: #0095f6 !important;
-  border: 1px solid #dbdbdb !important; /* Lighter border for a more minimal look */
-  padding: 0.7rem 1.4rem !important; /* Slightly more generous padding */
+  border: 1px solid #dbdbdb !important; /* Lighter, subtle border */
+  padding: 0.7rem 1.4rem !important;
   border-radius: 8px !important;
   font-size: 0.95rem !important;
   font-weight: 600 !important;
@@ -137,31 +159,27 @@ button {
   align-items: center !important;
   justify-content: center !important;
   cursor: pointer !important;
-  box-shadow: none !important; /* Remove shadow for minimalism */
+  box-shadow: none !important; /* No shadow */
   transition: all 0.2s ease-in-out !important;
   text-decoration: none !important;
+  margin-top: 1rem; /* Space above the button */
 }
 
 .wizard-column .wizard-btn-upload-file:hover {
-  background-color: #f2f2f2 !important; /* Very subtle grey on hover for upload */
-  color: #0095f6 !important; /* Keep text color same */
+  background-color: #f2f2f2 !important; /* Very subtle grey on hover */
+  color: #0095f6 !important;
   box-shadow: none !important;
-  transform: translateY(-1px) !important; /* Slight lift */
+  transform: translateY(-1px) !important;
 }
 
 .wizard-column .wizard-btn-upload-file svg {
   margin-right: 0.5rem !important;
-  width: 18px !important; /* Slightly larger icon */
+  width: 18px !important;
   height: 18px !important;
   fill: currentColor !important;
   transition: fill 0.2s !important;
 }
 
 .wizard-column .wizard-btn-upload-file:hover svg {
-  fill: #0095f6 !important; /* Keep icon color consistent */
-}
-
-/* Ensure body remains hidden for cleaner transitions if needed */
-body.custom-wizard {
-  overflow: hidden !important;
+  fill: #0095f6 !important;
 }
